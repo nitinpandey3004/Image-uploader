@@ -1,3 +1,77 @@
-<div>
-    <h1>This is Homepage</h1>
+<div class="col-lg-12 control-section card-control-section tile_layout">
+    <div class="row filter">
+        <div class=" col-md-3">
+            <div class="e-float-input">
+                <input type="text" required="" id="search_Card">
+                <span class="e-float-line"></span>
+                <label class="e-float-text" style="font-size:14px">Search by description</label>
+            </div>
+        </div>
+        <div class=" col-md-3">
+            <div class="e-float-input">
+                <input type="text" required="" id="search_Card1">
+                <span class="e-float-line"></span>
+                <label class="e-float-text" style="font-size:14px">Search by size</label>
+            </div>
+        </div>
+        <div class=" col-md-3">
+            <div class="e-float-input">
+                <input type="text" id="local" style="font-size:14px">
+            </div>
+        </div>
+        <div class=" col-md-3">
+            <div class="e-float-input">
+                <button type="button"
+                        class=" col btn btn-info btn-rounded"
+                        (click)="submitFilter()"
+                        style="font-size:14px">Search</button>
+            </div>
+        </div>
+        <!--<div class=" tile_search col-md-4">-->
+            <!--<input type="text" id="local">-->
+        <!--</div>-->
+    </div>
+</div>
+<div class="row filter">
+    <!--<div class="col-xs-6 col-sm-6 col-lg-6 col-md-6 col">-->
+        <!--<div class="e-float-input">-->
+            <!--<input type="text" required="" id="search_Card">-->
+            <!--<span class="e-float-line"></span>-->
+            <!--<label class="e-float-text">Enter text to search</label>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="md-form mt-0 col">-->
+        <!--<input class="form-control" type="text" placeholder="Search by description" aria-label="Search">-->
+    <!--</div>-->
+    <!--<div class="md-form mt-0 col">-->
+        <!--<input class="form-control" type="text" placeholder="Search by size" aria-label="Search">-->
+    <!--</div>-->
+
+    <!--<div class="col tile_search">-->
+        <!--<input type="text" id="local">-->
+    <!--</div>-->
+</div>
+<br>
+<div class="row row-cols-1 row-cols-md-4">
+    <div *ngFor="let image of imageList;">
+        <div class="col mb-4 h-100">
+            <div class="card h-100">
+                <div class="view overlay">
+                    <img class="card-img-top" src="{{image.url}}"
+                         alt="Card image cap">
+                </div>
+
+                <div class="card-body">
+                    <div class="row">
+                        <h4 class="card-title col-md-8">{{image.fileName}}</h4>
+                        <span class="card-title col-md-4">{{image.size}} Kb</span>
+                        <!--<div class="col-md-8">.col-md-8</div>-->
+                        <!--<div class="col-md-4">.col-md-4</div>-->
+                    </div>
+                    <p class="card-text">{{image.description}}</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,16 +1,21 @@
 <div class="container" style="width:50%;">
-    <form class="text-center border border-light p-5" >
+    <form class="text-center border border-light p-5"
+          name = "form"
+          #f="ngForm"
+          (ngSubmit)="uploadImage(f)">
 
         <p class="h4 mb-4">Image Upload Page</p>
 
         <!-- Name -->
-        <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Description">
+        <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Description"
+               name="description" [(ngModel)]="description">
 
         <div class="input-group">
             <div class="custom-file">
                 <input type="file" class="custom-file-input" id="inputGroupFile01"
                        accept='image/*'
                        (change)='handleChange($event)'
+                       name = "image"
                        aria-describedby="inputGroupFileAddon01">
                 <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
             </div>
@@ -19,7 +24,6 @@
 
         <!-- Send button -->
         <button class="btn btn-info btn-block"
-                (click)='uploadImage()'
                 type="submit">Upload</button>
 
     </form>

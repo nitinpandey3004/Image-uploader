@@ -3,6 +3,8 @@ import {ToastrService} from 'ngx-toastr';
 import {ImageUploadService} from "./image-upload.service";
 import {HttpErrorResponse} from '@angular/common/http';
 import $ from 'jquery';
+import {image_upload} from './shared/image_upload.model';
+import {NgForm} from "@angular/forms";
 
 class FileDetails {
     pending: boolean = false;
@@ -24,6 +26,7 @@ export class ImageUploadComponent {
     @Output() imageError = new EventEmitter();
 
     selectedFile: FileDetails;
+    description: string;
     imageChangedEvent: any;
 
     constructor(private toastr: ToastrService,
@@ -63,26 +66,32 @@ export class ImageUploadComponent {
         }
     }
 
-    uploadImage() {
-        console.log(this.selectedFile);
-        if(this.selectedFile) {
-            const reader = new FileReader();
-
-            reader.addEventListener('load', (event: any) => {
-                this.selectedFile.src = event.target.result;
-
-                this.selectedFile.pending = true;
-                this.imageService.upload(this.selectedFile.file).subscribe(
-                    (imageUrl: string) => {
-                        this.onSucces(imageUrl);
-                    },
-                    (errorResponse: HttpErrorResponse) => {
-                        this.toastr.error(errorResponse.error.errors[0].detail, 'Error!');
-                        this.onFailure();
-                    })
-            });
-
-            reader.readAsDataURL(this.selectedFile.file);
+    uploadImage(f: NgForm) {
+        if(!this.description) {
+            return this.toastr.error('Please Enter description', 'Error!');
         }
+        if(!this.selectedFile) {
+            return this.toastr.error('Please select a file!', 'Error!');
+        }
+        const reader = new FileReader();
+
+        reader.addEventListener('load', (event: any) => {
+            this.selectedFile.src = event.target.result;
+
+            this.selectedFile.pending = true;
+            this.imageService.upload(this.selectedFile.file, this.description).subscribe(
+                (imageUrl: string) => {
+                    this.toastr.info("Uploaded Successfully");
+                    $('label[for="inputGroupFile01"]').html("");
+                    f.reset();
+                    this.onSucces(imageUrl);
+                },
+                (errorResponse: HttpErrorResponse) => {
+                    this.toastr.error(errorResponse.error.errors[0].detail, 'Error!');
+                    this.onFailure();
+                })
+        });
+
+        reader.readAsDataURL(this.selectedFile.file);
     }
 }

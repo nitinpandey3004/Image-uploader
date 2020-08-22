@@ -3,11 +3,11 @@ const config = require('../config');
 
 const pool = mysql.createPool({
     connectionLimit : 100, //important
-    host     : config.DB_DETAILS.host,
-    user     : config.DB_DETAILS.user,
-    password : config.DB_DETAILS.password,
-    database : config.DB_DETAILS.database,
-    debug    : config.DB_DETAILS.debug
+    host     : config.DB_DETAILS.HOST,
+    user     : config.DB_DETAILS.USER,
+    password : config.DB_DETAILS.PASSWORD,
+    database : config.DB_DETAILS.DATABASE,
+    debug    : config.DB_DETAILS.DEBUG
 });
 
 const query = (query, values, cb) => {

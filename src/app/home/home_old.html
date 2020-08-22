@@ -1,0 +1,151 @@
+<!--<div class="col-lg-12 control-section card-control-section tile_layout">-->
+<!--<div class="row filter">-->
+<!--<div class="col-xs-6 col-sm-6 col-lg-6 col-md-6">-->
+<!--<div class="e-float-input">-->
+<!--<input type="text" required="" id="search_Card">-->
+<!--<span class="e-float-line"></span>-->
+<!--<label class="e-float-text" style="font-size:14px">Enter text to search</label>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-xs-6 col-sm-6 col-lg-6 col-md-6">-->
+<!--<div class="e-float-input">-->
+<!--<input type="text" required="" id="search_Card1">-->
+<!--<span class="e-float-line"></span>-->
+<!--<label class="e-float-text" style="font-size:14px">Enter text to search</label>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-xs-6 col-sm-6 col-lg-6 col-md-6 tile_search">-->
+<!--<input type="text" id="local">-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class='row e-card-layout' style="text-align:center;">-->
+<!--<div class="row">-->
+<!--<div class="row error" style="display:none;min-height:150px">-->
+<!--<div class="e-error-content"-->
+<!--style="margin:auto;height:inherit;font-size:18px;font-weight:500;color:inherit">No results found.-->
+<!--Please try a different search.-->
+<!--</div>-->
+<!--</div>-->
+<!--<div *ngFor="let task of DataList;">-->
+<!--<div class="col-xs-6 col-sm-6 col-lg-6 col-md-6">-->
+<!--<div id='card_sample_{{task.id}}' class='card_sample'>-->
+<!--<div class='{{task.isHorizontal == true? "e-card e-card-horizontal" : "e-card"}}'>-->
+<!--<div class='e-card-image'>-->
+<!--<img src="{{task.cardImage.url}}">-->
+<!--</div>-->
+<!--<div class='e-card-header'>-->
+<!--<div class='e-card-header-caption'>-->
+<!--<div class='e-card-header-title'>-->
+<!--{{task.header_title}}-->
+<!--</div>-->
+<!--<div class='e-card-sub-title'>{{task.header_subtitle}}-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class='e-card-content'>{{task.cardContent}}</div>-->
+<!--<div class='e-card-actions {{task.isHorizontal == true ? "e-card e-card-horizontal" : ""}}'>-->
+<!--<a href='{{task.card_action_btn.action_btns[0].href}}'-->
+<!--target='{{task.card_action_btn.action_btns[0].target}}'>{{task.card_action_btn.action_btns[0].text}}</a>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div id='source_link'>Source: &nbsp;-->
+<!--<a href="https://www.syncfusion.com/ebooks/" target='_blank'>https://www.syncfusion.com/ebooks</a>-->
+<!--</div>-->
+<!--</div>-->
+<!-- Search form -->
+<br>
+<div class="row">
+    <div class="md-form mt-0 col">
+        <input class="form-control" type="text" placeholder="Search by description" aria-label="Search">
+    </div>
+    <div class="md-form mt-0 col">
+        <input class="form-control" type="text" placeholder="Search by size" aria-label="Search">
+    </div>
+    <select class="mdb-select md-form colorful-select dropdown-primary col" searchable="Select Image Type">
+        <option value="1" disabled selected>Select Image Type</option>
+        <option value="1">Jpeg</option>
+        <option value="2">Png</option>
+    </select>
+</div>
+<br>
+<div class="row row-cols-1 row-cols-md-4">
+    <div class="col mb-4">
+        <div class="card h-100">
+            <div class="view overlay">
+                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg"
+                     alt="Card image cap">
+            </div>
+
+            <div class="card-body">
+                <h4 class="card-title">Card title</h4>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--//simple cards-->
+<!--<div class="row">-->
+<!--<div class = "col-md-3 mb-4">-->
+<!--<div class="card" style="width:rem;">-->
+<!--<img class="card-img-top" src="https://picsum.photos/id/237/200/300" alt="Card image cap">-->
+<!--<div class="card-body">-->
+<!--<h5 class="card-title">Card title</h5>-->
+<!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the-->
+<!--card's-->
+<!--content.</p>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-md-3 mb-4">-->
+<!--<div class="card" style="width:rem;">-->
+<!--<img class="card-img-top" src="https://co-image-bucket-2.s3.amazonaws.com/1597948190596_test1.jpg" alt="Card image cap">-->
+<!--<div class="card-body">-->
+<!--<h5 class="card-title">Card title</h5>-->
+<!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the-->
+<!--card's-->
+<!--content.</p>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-md-3 mb-4">-->
+<!--<div class="card" style="width:rem;">-->
+<!--<img class="card-img-top" src="..." alt="Card image cap">-->
+<!--<div class="card-body">-->
+<!--<h5 class="card-title">Card title</h5>-->
+<!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the-->
+<!--card's-->
+<!--content.</p>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-md-3 mb-4">-->
+<!--<div class="card" style="width:rem;">-->
+<!--<img class="card-img-top" src="..." alt="Card image cap">-->
+<!--<div class="card-body">-->
+<!--<h5 class="card-title">Card title</h5>-->
+<!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the-->
+<!--card's-->
+<!--content.</p>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-md-3 mb-4">-->
+<!--<div class="card" style="width:rem;">-->
+<!--<img class="card-img-top" src="test1.jpg" alt="Card image cap">-->
+<!--<div class="card-body">-->
+<!--<h5 class="card-title">Card title</h5>-->
+<!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the-->
+<!--card's-->
+<!--content.</p>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->

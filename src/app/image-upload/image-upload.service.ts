@@ -8,11 +8,13 @@ export class ImageUploadService {
     constructor(private http: HttpClient) {
     }
 
-    public upload(image: File): Observable<string | any> {
+    public upload(image: File, description: string): Observable<string | any> {
         const formData = new FormData();
 
         formData.append('image', image);
+        formData.append('description', description);
 
-        return this.http.post('/api/upload', formData).pipe(map(((json: any) => json.imageUrl)));
+        return this.http.post('/api/image/upload', formData)
+            .pipe(map(((json: any) => json.imageUrl)));
     }
 }

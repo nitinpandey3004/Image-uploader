@@ -1,8 +1,7 @@
-const s3 = require('./s3_client').getS3Client;
-const constants = require('./constants');
+const s3 = require('../helpers/s3').getS3Client;
+const config = require('../config');
 
-// The name of the bucket that you have created
-const BUCKET_NAME = constants.BUCKET_NAME;
+const BUCKET_NAME = config.BUCKET_NAME;
 
 const params = {
     Bucket: BUCKET_NAME,

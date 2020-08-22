@@ -1,0 +1,9 @@
+
+CREATE DATABASE IF NOT EXISTS co_image;
+
+CREATE TABLE Image_Details (
+  id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  fileName VARCHAR(30) NOT NULL,
+  description text,
+  size VARCHAR(30) NOT NULL
+);

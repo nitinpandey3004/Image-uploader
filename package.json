@@ -3,11 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "all": "npm start & node server/app.js",
+    "devtest": "cd server/ && node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha"
   },
   "private": true,
   "dependencies": {
@@ -20,14 +22,19 @@
     "@angular/platform-browser": "~7.1.0",
     "@angular/platform-browser-dynamic": "~7.1.0",
     "@angular/router": "~7.1.0",
+    "@syncfusion/ej2-dropdowns": "^18.2.54",
+    "angular-bootstrap-md": "^9.3.1",
     "bootstrap": "^4.5.2",
     "core-js": "^2.5.4",
+    "forever": "^3.0.0",
     "jquery": "^3.5.1",
     "ngf-bootstrap": "0.0.5",
     "ngx-toastr": "^10.0.4",
+    "normalize-port": "^1.0.0",
     "popper.js": "^1.16.1",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
+    "validatorjs": "^3.19.0",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
