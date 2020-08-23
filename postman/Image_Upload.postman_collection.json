@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "2b730dec-341e-4ec7-b887-87008ec6eb22",
+		"name": "Image_Upload",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST Image upload with valid data - expects 200",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "enctype",
+						"value": "multipart/form-data",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/home/nitinpa/app/co_image/setup/data/test1.png"
+						},
+						{
+							"key": "description",
+							"value": "test",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/image/upload",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"image",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Image upload without description - expects 422",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "enctype",
+						"value": "multipart/form-data"
+					},
+					{
+						"key": "Cookie",
+						"value": "teamId=0; Endpoints=*; Role=admin"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"value": "@/home/nitinpa/app/co_image/setup/data/test1.png",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/image/upload",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"image",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Image upload without image - expects 422",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "enctype",
+						"value": "multipart/form-data"
+					},
+					{
+						"key": "Cookie",
+						"value": "teamId=0; Endpoints=*; Role=admin"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "test",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/image/upload",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"image",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

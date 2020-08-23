@@ -1,0 +1,114 @@
+{
+	"info": {
+		"_postman_id": "5b55bd15-84fd-4008-a29d-cfe0afcc1f76",
+		"name": "Image_Get",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST Fetch Image with no condition - expects all data",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"connection": true,
+					"accept-encoding": true,
+					"host": true,
+					"user-agent": true,
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/image/fetchResult",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"image",
+						"fetchResult"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Fetch result with png only - expects only pngs in response",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "teamId=0; Endpoints=*; Role=admin"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"conditions\": {\n        \"fileTypes\": [\"image/png\"]\n    }\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/api/image/fetchResult",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"image",
+						"fetchResult"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST fetch image with descritption test ",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "teamId=0; Endpoints=*; Role=admin; teamId=0; Endpoints=*; Role=admin"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"conditions\": {\n        \"description\": \"test\"\n    }\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/api/image/fetchResult",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"image",
+						"fetchResult"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
