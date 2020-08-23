@@ -62,7 +62,6 @@ const update_db = (imageDetails) => {
     })
 };
 
-
 const deleteDetails = (id) => {
     return new Promise((resolve, reject) => {
         Image_Details.destroy({
