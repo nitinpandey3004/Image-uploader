@@ -1,20 +1,8 @@
-const express = require('express');
 const bodyParser = require('koa-body');
-const db = require("./models");
-var cors = require('cors')
 const image_route = require('./routes/image_route.js');
-const path = require("path");
 const Koa = require('koa');
-const koaBody = require('koa-body');
-// const serve = require('koa-static');
-const Router = require('koa-router');
-var serve = require('koa-static-server');
 
 const app = new Koa();
-// app.use(koaBody());
-// app.use(cors())
-
-db.sequelize.sync();
 
 
 // helper for returning errors in routes

@@ -5,7 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Installation
 
 - Run `bash setup/setup.sh` for installation and aws bucket creation (please make sure creds present in ./aws_credentials has access to AmazonS3FullAccess ).
-- Create RDS instance with db name "" and update credentials [here](/server/config/dev.js)
+- Create RDS instance and update credentials [here](/server/config/dev.js) or install mysql locally
 
 ## Development server
 

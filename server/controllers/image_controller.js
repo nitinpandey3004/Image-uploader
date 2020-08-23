@@ -20,12 +20,13 @@ const getQueryCondition = (conditions) => {
     for(const key in conditions) {
         dbConditions[key] = conditions[key];
     }
+    // //for like query
     // if (conditions.filename) {
     //     dbConditions["filename"] = {
     //         $iLike: '%' + conditions.filename + '%'
     //     }
     // }
-    //
+
     if (!!conditions && conditions.fileTypes.length > 0) {
         dbConditions["fileType"] = {
             $in: conditions.fileTypes
