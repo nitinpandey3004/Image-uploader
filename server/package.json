@@ -6,10 +6,7 @@
   "scripts": {
     "test": "mocha --timeout 50000",
     "start": "node index.js",
-    "test1": "nyc mocha",
-    "db:migrate": "babel-node ./setup/db_migrate",
-    "pretest": "NODE_ENV=test npm run db:migrate",
-    "haha_test": "NODE_PATH=./ NODE_ENV=test mocha --compilers js:babel-core/register --recursive"
+    "test1": "nyc mocha --timeout 50000"
   },
   "author": "",
   "license": "ISC",
@@ -36,7 +33,6 @@
     "sinon": "^9.0.3"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
     "chai": "^3.5.0",
     "chai-http": "^2.0.1",
     "isparta": "^4.1.1",

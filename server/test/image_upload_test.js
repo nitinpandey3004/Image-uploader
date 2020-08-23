@@ -4,33 +4,11 @@ let chaiHttp = require('chai-http');
 let server = require('../app');
 let expect = chai.expect;
 const path = require("path");
-const sinon = require('sinon');
-const proxyquire = require('proxyquire');
-const {makeMockModels} = require('sequelize-test-helpers')
+const image_services = require('./../services/image_services');
 
 chai.use(chaiHttp);
 
-const mockModels = makeMockModels({User: {create: sinon.stub()}});
-
-const save = proxyquire('../models', {
-    '../models': mockModels
-});
-
-describe("Test" , () => {
-    context("Inner test", () => {
-
-        let result;
-
-        before(async () => {
-            mockModels.User.findOne.resolves(undefined);
-            result = await save(data)
-        });
-
-        it("Fail db", () => {
-            
-        })
-    })
-});
+let s3_key_created;
 
 /**
  * Test normal Image upload
@@ -47,6 +25,7 @@ describe('Image Upload With valid inputs', () => {
                 .end((err, res) => {
                     expect(res).to.have.status(200);
                     expect(res.body["message"]).to.include("uploaded successfully")
+                    s3_key_created = res.body.data.key;
                     done();
                 })
         });
@@ -124,17 +103,14 @@ describe("Image Upload with Invalid inputs", () => {
     });
 });
 
-describe("Image upload with error handler", () => {
+describe("Testing s3 delete", () => {
 
-    let functionundertest;
-    let somefunction;
+    //try to access invalid path
+    it('it should delete image from s3', (done) => {
+        image_services.deleteObject(s3_key_created, (err) => {
+            expect(err).to.equal(null);
+            done();
+        })
+    });
 
-    before('Set up', () => {
-        somefunction = sinon.fake.throws(new Error('Some Error'));
-        functionundertest = proxyquire('../index', {
-            somemodule: {
-                somefunction
-            }
-        });
-    })
 });
