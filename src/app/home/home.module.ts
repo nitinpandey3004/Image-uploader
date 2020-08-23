@@ -7,7 +7,6 @@ import {HomeComponent} from "./home.component";
 import {HomeServices} from "./home.services";
 import {ImageResolverServices} from "./image.resolver.services";
 import {ImageServices} from "./shared/image.service";
-// import {ButtonsModule, WavesModule, CardsModule} from 'angular-bootstrap-md';
 
 @NgModule({
     imports: [
