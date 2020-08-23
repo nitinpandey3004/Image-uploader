@@ -27,7 +27,7 @@ const getQueryCondition = (conditions) => {
     //     }
     // }
 
-    if (!!conditions && conditions.fileTypes.length > 0) {
+    if (!!conditions && conditions.fileTypes && conditions.fileTypes.length > 0) {
         dbConditions["fileType"] = {
             $in: conditions.fileTypes
         };
@@ -38,6 +38,7 @@ const getQueryCondition = (conditions) => {
 
 const getDataByDetails  = async (body) => {
     const conditions = body.conditions;
+    console.log(conditions);
     return await image_services.getAllData(getQueryCondition(conditions));
 };
 
