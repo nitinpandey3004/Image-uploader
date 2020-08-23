@@ -52,12 +52,27 @@ const update_db = (imageDetails) => {
             url: imageDetails.url,
         };
         Image_Details.create(fileDetails).then((data) => {
-            return resolve();
+            return resolve(data.id);
         }).catch((err) => {
             //revert s3 upload
             deleteObject(fileDetails.fileName, () => {
                 return reject(err);
             });
+        })
+    })
+};
+
+
+const deleteDetails = (id) => {
+    return new Promise((resolve, reject) => {
+        Image_Details.destroy({
+            where: {
+                id: id
+            }
+        }).then((data) => {
+            return resolve("deleted");
+        }).catch((err) => {
+            return reject(err);
         })
     })
 };
@@ -81,4 +96,5 @@ module.exports = {
     deleteObject: deleteObject,
     update_db: update_db,
     getAllData: getAllData,
+    deleteDetails: deleteDetails
 }

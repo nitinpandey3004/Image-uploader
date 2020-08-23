@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --timeout 50000",
     "start": "node index.js",
-    "test1": "nyc mocha --timeout 50000"
+    "test": "nyc mocha --timeout 50000"
   },
   "author": "",
   "license": "ISC",

@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "all": "npm start & node server/app.js",
-    "devtest": "cd server/ && node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha"
+    "devtest": "cd server/ && npm run test"
   },
   "private": true,
   "dependencies": {

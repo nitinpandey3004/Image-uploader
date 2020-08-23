@@ -11,7 +11,7 @@ const uploadImage = async (file, description) => {
     imageDetails.description = description;
     imageDetails.url = res.url;
     imageDetails.size = file.size;
-    await image_services.update_db(imageDetails);
+    res.id = await image_services.update_db(imageDetails);
     return res;
 };
 

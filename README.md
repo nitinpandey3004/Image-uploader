@@ -1,6 +1,6 @@
 # CoImage
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.2.
+This is demo Image uploader and retriever project
 
 ## Installation
 
@@ -21,11 +21,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Running tests
 
-Run `npm run devtest` to execute the unit tests .
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Run `npm run devtest` to execute the tests with coverage.
 
 ## Further help
 

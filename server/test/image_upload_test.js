@@ -8,7 +8,7 @@ const image_services = require('./../services/image_services');
 
 chai.use(chaiHttp);
 
-let s3_key_created;
+let s3_key_created, db_id_created;
 
 /**
  * Test normal Image upload
@@ -26,6 +26,7 @@ describe('Image Upload With valid inputs', () => {
                     expect(res).to.have.status(200);
                     expect(res.body["message"]).to.include("uploaded successfully")
                     s3_key_created = res.body.data.key;
+                    db_id_created = res.body.data.id;
                     done();
                 })
         });
@@ -105,7 +106,7 @@ describe("Image Upload with Invalid inputs", () => {
 
 describe("Testing s3 delete", () => {
 
-    //try to access invalid path
+    //delete image from s3
     it('it should delete image from s3', (done) => {
         image_services.deleteObject(s3_key_created, (err) => {
             expect(err).to.equal(null);
@@ -113,4 +114,11 @@ describe("Testing s3 delete", () => {
         })
     });
 
+    //delete image from db
+    it('it should delete image from db', (done) => {
+        image_services.deleteDetails(db_id_created).then((res) => {
+            expect(res).to.equal("deleted");
+            done();
+        });
+    });
 });
